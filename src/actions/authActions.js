@@ -11,7 +11,7 @@ import { message } from "antd"
 
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post("/api/users/register", userData, { mode: cors })
+    .post("https://jobs-api.squareboat.info/api/v1/api/users/register", userData, { mode: cors })
     .then((res) => history.push("/login"))
     .catch((err) => {
       dispatch({
@@ -24,7 +24,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 //login user
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post("/auth/login", userData, { mode: cors })
+    .post("https://jobs-api.squareboat.info/api/v1/auth/login", userData, { mode: cors })
     .then((res) => {
       const { token } = res.data.data;
       localStorage.setItem("jwtToken", token);
